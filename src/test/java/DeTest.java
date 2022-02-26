@@ -59,5 +59,16 @@ public class DeTest {
         assertTrue(de1.getCurrentFace() >= 1 && de1.getCurrentFace() <= nbFaces );
     }
 
+    //Exemple de mock pour d'autres tests, à enlever plus tard
+    /*
+        De de = mock(De.class, withSettings().defaultAnswer(Answers.CALLS_REAL_METHODS).useConstructor(6));
+        doAnswer(invocationOnMock -> {
+            de.setCurrentFace(4);
+            return  null;
+        }).when(de).roulerDe();
+        de.roulerDe();
+        System.out.println(de.getCurrentFace());
+
+        */
 
 }
