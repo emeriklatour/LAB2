@@ -1,8 +1,5 @@
 package framework.elements;
 
-import lombok.Getter;
-
-@Getter
 public class De implements Comparable<De> {
 	private int nbFaces;
 	private int currentFace;
