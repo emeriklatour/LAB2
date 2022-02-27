@@ -3,7 +3,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.internal.util.reflection.FieldSetter;
 import org.mockito.junit.jupiter.MockitoExtension;
 import java.lang.reflect.Field;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -23,28 +22,36 @@ public class DeTest {
 
     @Test
     public void deInferieurTest() throws Exception {
-        FieldSetter.setField(de1, de1.getClass().getDeclaredField("currentFace"), 4);
-        FieldSetter.setField(de2, de2.getClass().getDeclaredField("currentFace"), 5);
+        Field currentFace = De.class.getDeclaredField("currentFace");
+        currentFace.setAccessible(true);
+        currentFace.set(de1, 4);
+        currentFace.set(de2, 5);
         assertTrue(de1.compareTo(de2) < 0);
     }
 
     @Test
     public void deSuperieurTest() throws Exception {
-        FieldSetter.setField(de1, de1.getClass().getDeclaredField("currentFace"), 4);
-        FieldSetter.setField(de2, de2.getClass().getDeclaredField("currentFace"), 5);
+        Field currentFace = De.class.getDeclaredField("currentFace");
+        currentFace.setAccessible(true);
+        currentFace.set(de1, 4);
+        currentFace.set(de2, 5);
         assertTrue(de2.compareTo(de1)>0);
     }
 
     @Test
     public void memeDeTest() throws Exception {
-        FieldSetter.setField(de1, de1.getClass().getDeclaredField("currentFace"), 4);
-        FieldSetter.setField(de2, de2.getClass().getDeclaredField("currentFace"), 4);
+        Field currentFace = De.class.getDeclaredField("currentFace");
+        currentFace.setAccessible(true);
+        currentFace.set(de1, 4);
+        currentFace.set(de2, 4);
         assertTrue(de1.compareTo(de2)==0);
     }
 
     @Test
     public void deNullTest() throws Exception {
-        FieldSetter.setField(de1, de1.getClass().getDeclaredField("currentFace"), 4);
+        Field currentFace = De.class.getDeclaredField("currentFace");
+        currentFace.setAccessible(true);
+        currentFace.set(de1, 4);
         assertThrows(NullPointerException.class, () -> {
             de1.compareTo(null);
         });
