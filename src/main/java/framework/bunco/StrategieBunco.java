@@ -3,7 +3,7 @@ package framework.bunco;
 import framework.game.IStrategie;
 import framework.game.Jeu;
 
-public class BuncoStrategie implements IStrategie {
+public class StrategieBunco implements IStrategie {
     @Override
     public void calculerGagnant(Jeu jeu) {
         return;
