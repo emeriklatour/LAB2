@@ -1,5 +1,12 @@
 package framework.elements;
 
+/******************************************************
+ 							De
+ * Cours:  LOG121
+ * Projet: Laboratoire 2
+ * @author Emerik Latour, Lucas Cimino, Philippe Tanguay-Gaudreau
+ * @date 2022/03/02
+ *******************************************************/
 public class De implements Comparable<De> {
 	private int nbFaces;
 	private int currentFace;

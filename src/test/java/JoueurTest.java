@@ -4,12 +4,16 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
 import java.lang.reflect.Field;
+import static org.junit.jupiter.api.Assertions.*;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
+/******************************************************
+                    JoueurTest
+ * Cours:  LOG121
+ * Projet: Laboratoire 2
+ * @author Emerik Latour, Lucas Cimino, Philippe Tanguay-Gaudreau
+ * @date 2022/03/02
+ *******************************************************/
 @ExtendWith(MockitoExtension.class)
 public class JoueurTest {
     @Mock
@@ -57,13 +61,12 @@ public class JoueurTest {
     @Test
     public void scoreTest(){
         j1.setScore(29);
-        j2.setScore(34);
-        assertTrue(j1.getScore()==29 && j2.getScore()==34);
+        assertEquals(j1.getScore(), 29);
     }
 
     @Test
     public void nameTest(){
         //Le nom a été donné dans le constructeur par la méthode init(), ont test le getter
-        assertTrue(j1.getName()=="Joueur 1");
+        assertEquals(j1.getName(), "Joueur 1");
     }
 }

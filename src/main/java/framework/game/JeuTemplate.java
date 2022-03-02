@@ -4,6 +4,13 @@ import framework.collections.IGameCollection;
 import framework.elements.De;
 import framework.elements.Joueur;
 
+/******************************************************
+					JeuTemplate
+ * Cours:  LOG121
+ * Projet: Laboratoire 2
+ * @author Emerik Latour, Lucas Cimino, Philippe Tanguay-Gaudreau
+ * @date 2022/03/02
+ *******************************************************/
 public abstract class JeuTemplate {
 	public IJeu initialiserJeu() {
 		return new Jeu(
