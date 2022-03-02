@@ -8,6 +8,13 @@ import java.lang.reflect.Field;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/******************************************************
+                        DeTest
+ * Cours:  LOG121
+ * Projet: Laboratoire 2
+ * @author Emerik Latour, Lucas Cimino, Philippe Tanguay-Gaudreau
+ * @date 2022/03/02
+ *******************************************************/
 @ExtendWith(MockitoExtension.class)
 public class DeTest {
     @Mock
