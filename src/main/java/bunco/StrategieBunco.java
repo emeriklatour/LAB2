@@ -1,4 +1,4 @@
-package framework.bunco;
+package bunco;
 
 import framework.game.IStrategie;
 import framework.game.Jeu;

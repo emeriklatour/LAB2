@@ -1,4 +1,4 @@
-import framework.bunco.JeuBunco;
+import bunco.JeuBunco;
 import framework.game.Jeu;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

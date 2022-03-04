@@ -1,4 +1,4 @@
-package framework.bunco;
+package bunco;
 
 import framework.collections.GameCollection;
 import framework.collections.IGameCollection;
