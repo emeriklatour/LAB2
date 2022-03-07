@@ -58,7 +58,6 @@ public class StrategieBunco implements IStrategie {
                     dePoints++;
                 if(currentDe.compareTo(first) == 0)
                     miniBunco++;
-
             }
 
             //Compte des points obtenus pour le lancé.
