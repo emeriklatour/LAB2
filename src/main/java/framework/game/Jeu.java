@@ -6,6 +6,13 @@ import framework.elements.Joueur;
 
 import java.util.Iterator;
 
+/******************************************************
+ 						Jeu
+ * Cours:  LOG121
+ * Laboratoire: Laboratoire 2
+ * @author Emerik Latour, Lucas Cimino, Philippe Tanguay-Gaudreau
+ * @date 2022/03/02
+ *******************************************************/
 public class Jeu implements IJeu {
 	private IGameCollection<Joueur> joueurs;
 	private IGameCollection<De> des;
@@ -70,8 +77,12 @@ public class Jeu implements IJeu {
 
 	private void effectuerTour() {
 		this.currentJoueur = 0;
-		while (this.currentJoueur <= this.joueurs.size()) {
+		System.out.println("---------------------------------------");
+		System.out.println("Tour " + currentTurnNb);
+		System.out.println("---------------------------------------");
+		while (this.currentJoueur < this.joueurs.size()) {
 			calculerScoreTour();
+			currentJoueur++;
 		}
 		this.currentTurnNb++;
 	}
