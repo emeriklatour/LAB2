@@ -40,7 +40,7 @@ public class StrategieBunco implements IStrategie {
         boolean lancerEncore = true;
 
         System.out.println("***************************************");
-        //For loop qui loop 3 fois par joueur, pour effectuer 3 lancés.
+        //Loop qui loop tant et aussi longtemps qu'un joueur gagne des points, sauf s'il gagne un bunco.
         while (lancerEncore){
             nbLancerCourant++;
             dePoints = 0;
