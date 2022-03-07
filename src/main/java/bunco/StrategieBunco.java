@@ -80,19 +80,22 @@ public class StrategieBunco implements IStrategie {
                 System.out.println("mini bunco! +5 points.)");
             } else if (dePoints == 1){
                 /*
-                Si dePoints = 1, une face d'un des dés lancés est égale au nombre du tour courant. On ajoute le nombre du
-                tour courant au score et on lance une autre fois.
+                Si dePoints = 1, une face d'un des dés lancés est égale au nombre du tour courant. On ajoute 1 au score courant et on lance
+                une autre fois.
                  */
-                score = score + jeu.getCurrentTurnNb();
-                System.out.println(jeu.getCurrentTurnNb() + " points.)");
+                score = score + 1;
+                System.out.println(1 + " points.)");
             } else if (dePoints == 2){
                 /*
-                Si dePoints = 2, 2 face des dés lancés sont égales au nombre du tour courant. On ajoute le nombre du
-                tour courant x 2 au score et on lance une autre fois.
+                Si dePoints = 2, 2 face des dés lancés sont égales au nombre du tour courant. On ajoute 2 au
+                score et on lance une autre fois.
                  */
-                score = score + (jeu.getCurrentTurnNb()*2);
-                System.out.println((jeu.getCurrentTurnNb()*2) + " points.)");
+                score = score + 2;
+                System.out.println((2 + " points.)"));
             } else {
+                /*
+                Aucun point n'a été gagné. lancerEncore devient faux, ce qui nous fait sortir de la loop et on passe au prochain joueur.
+                 */
                 lancerEncore = false;
                 System.out.println("0 points.)");
             }
