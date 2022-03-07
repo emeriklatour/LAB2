@@ -36,13 +36,16 @@ public class StrategieBunco implements IStrategie {
         int score = 0; //Score total du tour courant pour un joueur.
         int dePoints; //Pour savoir le nombre de points à ajouter au score à chaque lancé.
         int miniBunco; //Pour savoir s'il y a un mini bunco.
+        int nbLancerCourant = 0;
+        boolean lancerEncore = true;
 
         System.out.println("***************************************");
         //For loop qui loop 3 fois par joueur, pour effectuer 3 lancés.
-        for (int i = 0; i < 3 ; i++) {
+        while (lancerEncore){
+            nbLancerCourant++;
             dePoints = 0;
             miniBunco = 0;
-            System.out.print("Joueur " + (jeu.getCurrentJoueur()+1) + " lance " + (i + 1) + " fois. (");
+            System.out.print("Joueur " + (jeu.getCurrentJoueur()+1) + " lance " + (nbLancerCourant) + " fois. (");
             roulerLesDes(jeu.getAllDes());
             /*
             J'initialise un Iterator<De> à chaque fois qu'on loop (à chaque lancé)
@@ -90,6 +93,7 @@ public class StrategieBunco implements IStrategie {
                 score = score + (jeu.getCurrentTurnNb()*2);
                 System.out.println((jeu.getCurrentTurnNb()*2) + " points.)");
             } else {
+                lancerEncore = false;
                 System.out.println("0 points.)");
             }
         }
