@@ -1,15 +1,12 @@
 package framework.elements;
 
-import lombok.ToString;
-
 /******************************************************
  						Joueur
  * Cours:  LOG121
- * Projet: Laboratoire 2
+ * Laboratoire: Laboratoire 2
  * @author Emerik Latour, Lucas Cimino, Philippe Tanguay-Gaudreau
  * @date 2022/03/02
  *******************************************************/
-@ToString
 public class Joueur implements Comparable<Joueur> {
 	private String name;
 	private int score;
@@ -35,4 +32,6 @@ public class Joueur implements Comparable<Joueur> {
 	public int compareTo(Joueur o) {
 		return Integer.compare(this.score, o.score);
 	}
+
+
 }
