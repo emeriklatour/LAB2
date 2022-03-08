@@ -62,7 +62,8 @@ public class JeuTest {
 
     @Test
     public void lancerJeuTest(){
-        //TODO - Quand stratégieBunco va être faite
+        jeu.lancerJeu();
+        assertEquals(7, jeu.getCurrentTurnNb());
     }
 
 }

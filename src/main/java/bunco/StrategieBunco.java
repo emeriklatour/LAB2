@@ -17,21 +17,38 @@ import java.util.*;
 public class StrategieBunco implements IStrategie {
     int _nbLancerCourant = 0;
     int _score = 0; //Score total du tour courant pour un joueur.
+    int _scoreLancer = 0;
 
     @Override
     public void calculerGagnant(Jeu jeu) {
-        Joueur gagnant = jeu.getAllJoueurs().next();
-        Joueur next;
-        Iterator<Joueur> joueurs = jeu.getAllJoueurs();;
+        Iterator<Joueur> joueurs = jeu.getAllJoueurs();
+        Joueur[] joueurArray = new Joueur[0];
 
+        int counter = 0;
         while(joueurs.hasNext()){
-            next = joueurs.next();
-            if(next.compareTo(gagnant)>0)
-                gagnant = next;
+            joueurArray = Arrays.copyOf(joueurArray, joueurArray.length+1);
+            Joueur next = joueurs.next();
+            joueurArray[counter] = next;
+            counter++;
+        }
+
+        Arrays.sort(joueurArray, Collections.reverseOrder());
+        counter = 0;
+        joueurs = jeu.getAllJoueurs();
+        while (joueurs.hasNext()){
+            Joueur j = joueurs.next();
+            if(j == joueurArray[0]){
+                jeu.setIndexGagnant(counter);
+                break;
+            }
+            counter++;
         }
 
         System.out.println("---------------------------------------");
-        System.err.println("GAGNANT : " + gagnant.getName() + " avec un total de " + gagnant.getScore() + " points.");
+        System.out.println("GAGNANT : " + joueurArray[0].getName() + " avec un total de " + joueurArray[0].getScore() + " points.");
+        for (int i = 1; i < joueurArray.length; i++){
+            System.out.println(i+1 + "e Place : " + joueurArray[i].getName() + " avec un total de " + joueurArray[i].getScore() + " points.");
+        }
     }
 
     @Override
@@ -64,13 +81,17 @@ public class StrategieBunco implements IStrategie {
             Si dePoints = 3, les 3 dés sont pareils au nombre du tour courant. score = 21 et on passe au prochain joueur.
              */
             _score = 21;
+            _scoreLancer=21;
             System.out.println("bunco! 21 points.)");
-            setScoreAndReset(jeu, currentJoueur);
+            setScore(jeu, currentJoueur);
+            reset(jeu, currentJoueur);
         } else if (miniBunco == 3){
             /*
             Si miniBunco = 3, les 3 dés sont pareils. score + 5 et on lance une autre fois.
              */
             _score += 5;
+            _scoreLancer = 5;
+            setScore(jeu, currentJoueur);
             System.out.println("mini bunco! +5 points.)");
         } else if (dePoints == 1){
             /*
@@ -78,6 +99,8 @@ public class StrategieBunco implements IStrategie {
             une autre fois.
              */
             _score += 1;
+            _scoreLancer = 1;
+            setScore(jeu, currentJoueur);
             System.out.println(1 + " points.)");
         } else if (dePoints == 2){
             /*
@@ -85,13 +108,16 @@ public class StrategieBunco implements IStrategie {
             score et on lance une autre fois.
              */
             _score += 2;
+            _scoreLancer = 2;
+            setScore(jeu, currentJoueur);
             System.out.println((2 + " points.)"));
         } else {
             /*
             Aucun point n'a été gagné et on passe au prochain joueur.
              */
             System.out.println("0 points.)");
-            setScoreAndReset(jeu, currentJoueur);
+            setScore(jeu, currentJoueur);
+            reset(jeu, currentJoueur);
         }
 
     }
@@ -100,27 +126,26 @@ public class StrategieBunco implements IStrategie {
      * Roule chacun des dés dans la collection.
      * @param des Un itérateur de type "De"
      */
-    private void roulerLesDes(Iterator<De> des){
+    public void roulerLesDes(Iterator<De> des){
         while (des.hasNext()){
             De de = des.next();
             de.roulerDe();
         }
     }
 
-    /**
-     * Ajoute le score au joueur courant et réinitialise les variables de la classe pour l'affichage du prochain joueur.
-     * @param jeu le jeu Bunco
-     * @param currentJoueur l'index du joueur courrant.
-     */
-    private void setScoreAndReset(Jeu jeu, int currentJoueur){
-        _nbLancerCourant = 0;
+    private void reset(Jeu jeu, int currentJoueur){
         System.out.println("Joueur " + (currentJoueur+1) + " a obtenu " + _score + " points pour le tour "
                 + jeu.getCurrentTurnNb() + ".");
         jeu.setCurrentJoueur(currentJoueur+1);
+        _nbLancerCourant = 0;
+        _score = 0;
+    }
+
+    private void setScore(Jeu jeu, int currentJoueur){
         //Ajout du score obtenu dans le tour au score du joueur courant.
         Joueur joueur = getCurrentJoueur(currentJoueur, jeu.getAllJoueurs());
-        joueur.setScore((joueur.getScore()+ _score));
-        _score = 0;
+        joueur.setScore((joueur.getScore()+ _scoreLancer));
+        _scoreLancer = 0;
     }
 
     /**
