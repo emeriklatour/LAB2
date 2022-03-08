@@ -1,5 +1,6 @@
 package framework.game;
 
+import bunco.StrategieBunco;
 import framework.collections.IGameCollection;
 import framework.elements.De;
 import framework.elements.Joueur;
@@ -70,6 +71,9 @@ public class Jeu implements IJeu {
 	@Override
 	public void lancerJeu() {
 		while (this.currentTurnNb <= this.nbTour) {
+			System.out.println("---------------------------------------");
+			System.out.println("Tour " + currentTurnNb);
+			System.out.println("---------------------------------------");
 			effectuerTour();
 		}
 		calculerGagnant();
@@ -77,13 +81,11 @@ public class Jeu implements IJeu {
 
 	private void effectuerTour() {
 		this.currentJoueur = 0;
-		System.out.println("---------------------------------------");
-		System.out.println("Tour " + currentTurnNb);
-		System.out.println("---------------------------------------");
+		System.out.println("***************************************");
 		while (this.currentJoueur < this.joueurs.size()) {
 			calculerScoreTour();
-			currentJoueur++;
 		}
+		System.out.println("***************************************");
 		this.currentTurnNb++;
 	}
 }
