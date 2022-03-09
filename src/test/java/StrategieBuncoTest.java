@@ -97,7 +97,6 @@ public class StrategieBuncoTest {
 
     @Test
     public void calculerScoreTour1PointTest() throws Exception{
-        Iterator<De> des = jeu.getAllDes();
         De de = jeu.getAllDes().next();
 
         currentFace.set(de,1);
@@ -114,7 +113,6 @@ public class StrategieBuncoTest {
 
     @Test
     public void calculerScoreTour0PointTest() throws Exception{
-        Iterator<De> des = jeu.getAllDes();
         De de = jeu.getAllDes().next();
 
         currentFace.set(de,3);
