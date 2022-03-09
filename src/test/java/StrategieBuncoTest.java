@@ -50,8 +50,6 @@ public class StrategieBuncoTest {
 
         currentFace = De.class.getDeclaredField("currentFace");
         currentFace.setAccessible(true);
-
-
     }
 
     /**
@@ -112,7 +110,7 @@ public class StrategieBuncoTest {
     }
 
     @Test
-    public void calculerScoreTour0PointTest() throws Exception{
+    public void calculerScoreTour0PointTest() throws Exception {
         De de = jeu.getAllDes().next();
 
         currentFace.set(de,3);
@@ -141,7 +139,6 @@ public class StrategieBuncoTest {
         jeu.calculerGagnant();
 
         assertEquals(1, jeu.getIndexGagnant());
-
     }
 
 }
