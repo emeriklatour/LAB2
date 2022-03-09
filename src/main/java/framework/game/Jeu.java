@@ -1,11 +1,19 @@
 package framework.game;
 
+import bunco.StrategieBunco;
 import framework.collections.IGameCollection;
 import framework.elements.De;
 import framework.elements.Joueur;
 
 import java.util.Iterator;
 
+/******************************************************
+ 						Jeu
+ * Cours:  LOG121
+ * Laboratoire: Laboratoire 2
+ * @author Emerik Latour, Lucas Cimino, Philippe Tanguay-Gaudreau
+ * @date 2022/03/02
+ *******************************************************/
 public class Jeu implements IJeu {
 	private IGameCollection<Joueur> joueurs;
 	private IGameCollection<De> des;
@@ -63,6 +71,9 @@ public class Jeu implements IJeu {
 	@Override
 	public void lancerJeu() {
 		while (this.currentTurnNb <= this.nbTour) {
+			System.out.println("---------------------------------------");
+			System.out.println("Tour " + currentTurnNb);
+			System.out.println("---------------------------------------");
 			effectuerTour();
 		}
 		calculerGagnant();
@@ -70,9 +81,11 @@ public class Jeu implements IJeu {
 
 	private void effectuerTour() {
 		this.currentJoueur = 0;
-		while (this.currentJoueur <= this.joueurs.size()) {
+		System.out.println("***************************************");
+		while (this.currentJoueur < this.joueurs.size()) {
 			calculerScoreTour();
 		}
+		System.out.println("***************************************");
 		this.currentTurnNb++;
 	}
 }

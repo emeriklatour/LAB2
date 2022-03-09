@@ -4,6 +4,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/******************************************************
+ 					GameCollection
+ * Cours:  LOG121
+ * Laboratoire: Laboratoire 2
+ * @author Emerik Latour, Lucas Cimino, Philippe Tanguay-Gaudreau
+ * @date 2022/03/02
+ *******************************************************/
 public class GameCollection<Item> implements IGameCollection<Item> {
 	private final List<Item> list;
 
