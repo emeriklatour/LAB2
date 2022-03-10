@@ -9,7 +9,6 @@ import lombok.ToString;
  * @author Emerik Latour, Lucas Cimino, Philippe Tanguay-Gaudreau
  * @date 2022/03/02
  *******************************************************/
-@ToString
 
 /**
  * Cette classe represente les Des qui seront rouler au courant du jeu.

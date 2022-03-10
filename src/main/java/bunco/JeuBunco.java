@@ -14,8 +14,16 @@ import framework.game.JeuTemplate;
  * @author Emerik Latour, Lucas Cimino, Philippe Tanguay-Gaudreau
  * @date 2022/03/02
  *******************************************************/
+
+/**
+ * Represente le jeu de des Bunco+
+ */
 public class JeuBunco extends JeuTemplate {
 
+    /**
+     * Recueille les joueurs.
+     * @return un objet GameCollection de type Joueur.
+     */
     @Override
     public IGameCollection<Joueur> getJoueurs() {
         GameCollection<Joueur> joueurs = new GameCollection<>();
@@ -25,6 +33,10 @@ public class JeuBunco extends JeuTemplate {
         return joueurs;
     }
 
+    /**
+     * Recueille les des.
+     * @return un objet GameCollection de type De.
+     */
     @Override
     public IGameCollection<De> getDes() {
         GameCollection<De> des = new GameCollection<>();
@@ -34,11 +46,19 @@ public class JeuBunco extends JeuTemplate {
         return des;
     }
 
+    /**
+     * Initialise et retourne la strategie a utiliser pour le jeu.
+     * @return un objet qui implemente l'interface IStrategie, StrategieBunco.
+     */
     @Override
     public IStrategie getStrategie() {
         return new StrategieBunco();
     }
 
+    /**
+     * Recueille le nombre de tours pour le jeu.
+     * @return le nombre de tours.
+     */
     @Override
     public int getNbTours() {
         return 6;
