@@ -57,7 +57,7 @@ public class StrategieBuncoTest {
     }
 
     /**
-     * Verifie que le score calcule est 21 lors d'un BUNCO.
+     * Verifie que le score calcule est 21 lors d'un BUNCO et qu'on passe au prochain joueur.
      * @throws Exception si l'attribut prive devant être change (currentFace) n'est pas accessible
      */
     @Test
@@ -80,7 +80,7 @@ public class StrategieBuncoTest {
     }
 
     /**
-     * Verifie que le score calcule lors d'un mini BUNCO est 5.
+     * Verifie que le score calcule lors d'un mini BUNCO est 5 et que le joueur garde les des.
      * @throws Exception si l'attribut prive devant être change (currentFace) n'est pas accessible
      */
     @Test
@@ -102,7 +102,7 @@ public class StrategieBuncoTest {
     }
 
     /**
-     * Verifie que le score calcule lorsque 1 de a la même face que le nombre du tour est 1.
+     * Verifie que le score calcule lorsque 1 de a la même face que le nombre du tour est 1 et que le joueur garde les dés.
      * @throws Exception si l'attribut prive devant être change (currentFace) n'est pas accessible
      */
     @Test
@@ -122,7 +122,7 @@ public class StrategieBuncoTest {
     }
 
     /**
-     * Verifie que le score calcule lorsque 2 des ont la même face que le nombre du tour est 2.
+     * Verifie que le score calcule lorsqu'aucuns des ont la même face que le nombre du tour est 0 et qu'on passe au prochain joueur.
      * @throws Exception si l'attribut prive devant être change (currentFace) n'est pas accessible
      */
     @Test
